@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>CIENTES/VISTA</title>
+  </head>
+  <body>
+
+    <br><br>
+      <nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/panel-admin"> <img src="../img/iconos/grid-three-up-3x.png" alt=""> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/panel-admin">Regresar a panel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Cerrar Sesión</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <br>
+
+    <h1 class="display-4 center">Ver Cliente #<%-id%></h1>
+    <br>
+    <br>
+
+    <section class="container">
+      <form>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" value="fernando@gmail.com" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" id="nombre" value="Fernando" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="ap-paterno">Apellido Paterno:</label>
+          <input type="text" class="form-control" id="ap-paterno" value="Mayorga" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="ap-materno">Apellido Materno:</label>
+          <input type="text" class="form-control" id="ap-materno" value="Rojas" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="tel-cel">Tel. Celular:</label>
+          <input type="text" class="form-control" id="tel-cel" value="3398787646" readonly="true">
+        </div>
+        <div class="form-group">
+          <label for="tel-fijo">Tel. Fijo:</label>
+          <input type="text" class="form-control" id="tel-fijo" value="36297665" readonly="true">
+        </div>
+      </form>
+    </section>
+
+    <h2 class="display-5 center">Eventos del cliente</h1>
+    <br>
+
+    <section class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Costo total</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Anticipo</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(var i = 0; i < 3; i++) { %>
+          <tr>
+            <td>27/03/2018 03:00pm</td>
+            <td>Fernando Mayorga Rojas</td>
+            <td>$1500</td>
+            <td>Apartado</td>
+            <td>$500</td>
+            <td>
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="/evento-vista/<%- i %>"><img src="../img/iconos/eye-2x.png" alt=""></a></li>
+              </ul>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
