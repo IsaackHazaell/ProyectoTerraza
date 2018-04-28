@@ -1,0 +1,43 @@
+
+#masonry {
+  column-count: 2;
+  column-gap: 1em;
+}
+
+@media(min-width: 40em) {
+  #masonry {
+    column-count: 3;
+    column-gap: 1em;
+  }
+}
+
+@media(min-width: 60em) {
+  #masonry {
+    column-count: 4;
+    column-gap: 1em;
+  }
+}
+
+.item {
+  background-color: none;
+  display: inline-block;
+  margin: 0 0 1em 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.item img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  margin-bottom: -4px;
+
+  /*idk why but this fix stuff*/
+}
+
+.item.active {
+  animation-name: active-in;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-direction: alternate;
+}

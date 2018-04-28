@@ -1,0 +1,42 @@
+h1.center {
+  text-align: center;
+}
+
+h2.center {
+  text-align: center;
+}
+
+.req {
+  color: red;
+}
+
+.card-center {
+  margin-left: 30px;
+}
+
+.col-md {
+  margin: 10px;
+
+  .card {
+    margin: 0 auto;
+  }
+}
+
+.table tr:nth-child(odd),
+.table tr:nth-child(even)  {
+  text-align: center;
+}
+
+.table tr:nth-child(odd):hover,
+.table tr:nth-child(even):hover  {
+  background-color: #adadad;
+}
+
+.error,
+.error:focus {
+  border-color: red;
+}
+
+.error-text {
+  color: red;
+}
