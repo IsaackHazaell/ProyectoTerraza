@@ -64,31 +64,6 @@ buttonDelete.on('click', function() {
   } else {
     swal('Acción cancelada');
   }
-
-  /*swal({
-    title: "Estas seguro que quieres borrar este elemento(s)?",
-    text: "Una vez borres este elemento no se podra recuperar!",
-    icon: "warning",
-    buttons: true,
-    dangerMode: true,
-  })
-  .then((willDelete) => {
-    if (willDelete) {
-
-      $.each( selectItems, function( key, value ) {
-        let item = $(value);
-        if(item.is(':checked')) {
-          console.log('Se borro item: ' + item.val());
-        }
-      });
-
-      swal("Elemento(s) borrado.", {
-        icon: "success",
-      });
-    } else {
-      swal("Acción cancelada.");
-    }
-  });*/
 });
 
 buttonSelectAll.on('click', function() {
