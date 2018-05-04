@@ -1,43 +1,23 @@
+.gal {
 
-#masonry {
-  column-count: 2;
-  column-gap: 1em;
-}
 
-@media(min-width: 40em) {
-  #masonry {
+	-webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
     column-count: 3;
-    column-gap: 1em;
-  }
-}
 
-@media(min-width: 60em) {
-  #masonry {
-    column-count: 4;
-    column-gap: 1em;
-  }
-}
 
-.item {
-  background-color: none;
-  display: inline-block;
-  margin: 0 0 1em 0;
-  width: 100%;
-  cursor: pointer;
-}
+	}
+	.gal img{ width: 100%; padding: 7px 0;}
+@media (max-width: 500px) {
 
-.item img {
-  max-width: 100%;
-  height: auto;
-  width: 100%;
-  margin-bottom: -4px;
+		.gal {
 
-  /*idk why but this fix stuff*/
-}
 
-.item.active {
-  animation-name: active-in;
-  animation-duration: 0.7s;
-  animation-fill-mode: forwards;
-  animation-direction: alternate;
-}
+	-webkit-column-count: 1; /* Chrome, Safari, Opera */
+    -moz-column-count: 1; /* Firefox */
+    column-count: 1;
+
+
+	}
+
+	}
