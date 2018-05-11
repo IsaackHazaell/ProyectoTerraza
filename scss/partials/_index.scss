@@ -1,0 +1,35 @@
+.index-article {
+  width: 100%;
+  height: auto;
+  margin: 0;
+
+  h2 {
+    margin: 0;
+    padding: 20px;
+    color: black;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  p {
+    margin: 0;
+    padding: 20px;
+    color: black;
+    font-size: 1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  img {
+    display: none;
+  }
+}
+
+.bg-gray {
+  background-color: $gray;
+}
+
+.bg-lightgray {
+  background-color: $lightgray;
+}
