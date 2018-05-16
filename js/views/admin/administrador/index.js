@@ -26,11 +26,23 @@ $('document').ready(function() {
   // BOTONES ------------------------
 
   $('#view').on('click', function() {
-
+    $.each(cajas, function(index, value) {
+      var element = $(value);
+      var bool = element.prop('checked');
+      if(bool) {
+        window.location.replace('vista.html?id='+element.val());
+      }
+    });
   });
 
   $('#edit').on('click', function() {
-
+    $.each(cajas, function(index, value) {
+      var element = $(value);
+      var bool = element.prop('checked');
+      if(bool) {
+        window.location.replace('editar.html?id='+element.val());
+      }
+    });
   });
 
   $('#delete').on('click', function() {
@@ -38,13 +50,10 @@ $('document').ready(function() {
       var element = $(value);
       var bool = element.prop('checked');
       if(bool) {
-        console.log('Borrar ' + element.val());
-
-        $.ajax({url: `https://donleonapi.herokuapp.com/user`, data: {id: element.val()}, method: `delete`})
+        $.ajax({url: 'https://donleonapi.herokuapp.com/user', method: 'delete', data: {id: element.val()}})
         .done(function(data) {
-          alert(element.val() + 'Borrado');
+          console.log('data');
         });
-
       }
     });
   });
@@ -69,7 +78,7 @@ $('document').ready(function() {
   });
 
   $('#create').on('click', function() {
-    window.open("./crear.html");
+    window.location.replace("crear.html");
   });
 
   $('#tabla tbody').on('change', '.cajas', function() {
