@@ -60,6 +60,9 @@ $('document').ready(function() {
         });
       }
     });
+    alertify.alert("Don Leon","Borrando.", function(){
+      location.reload();
+    });
   });
 
   $('#selectAll').on('click', function() {
