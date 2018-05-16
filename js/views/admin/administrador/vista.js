@@ -9,5 +9,4 @@ $('document').ready(function() {
     $('#phone').val(data[0].phone);
   });
 
-
 });

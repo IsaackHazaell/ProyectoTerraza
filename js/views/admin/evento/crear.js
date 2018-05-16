@@ -6,7 +6,7 @@ $('document').ready(function() {
     var html = ``;
 
     $.each(data, function(index, value) {
-      html += `<option value="${value.name} ${value.last_name}">${value.name} ${value.last_name}</option>`;
+      html += `<option value="${value.id}">${value.name} ${value.last_name}</option>`;
     });
 
     $('#client').append(html);
@@ -24,7 +24,7 @@ $('document').ready(function() {
     if(status > 0) return 0;
 
     var evento = {
-      client: $('#client').val(),
+      client_id: $('#client').val(),
       dateStart: $('#dateStart').val(),
       dateEnd: $('#dateEnd').val(),
       persons: $('#persons').val()

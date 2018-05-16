@@ -2,10 +2,12 @@ $('document').ready(function() {
 
   $.get('https://donleonapi.herokuapp.com/event/'+$.urlParam('id'), function(data) {
     console.log(data);
-    $('#client').val(data[0].client);
-    $('#dateStart').val(data[0].datestart.substring(0,10));
-    $('#dateEnd').val(data[0].dateend.substring(0,10));
-    $('#persons').val(data[0].persons);
+    $.get('https://donleonapi.herokuapp.com/client/'+data[0].client_id, function(data2) {
+      $('#client').val(data2[0].name + ' ' + data2[0].last_name);
+      $('#dateStart').val(data[0].datestart.substring(0,10));
+      $('#dateEnd').val(data[0].dateend.substring(0,10));
+      $('#persons').val(data[0].persons);
+    });
   });
 
 
