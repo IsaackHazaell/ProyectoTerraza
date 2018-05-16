@@ -42,7 +42,7 @@ $('document').ready(function() {
     console.log(usuario);
 
     $.ajax({url: 'https://donleonapi.herokuapp.com/user', method: 'put', data: usuario})
-    .done(function(data) {
+    .always(function() {
       alertify.alert("Don Leon","Se edito el administrador!!", function(){
         window.location.replace('index.html')
       });

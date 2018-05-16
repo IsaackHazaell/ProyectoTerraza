@@ -38,7 +38,7 @@ $('document').ready(function() {
     console.log(cliente);
 
     $.ajax({url: 'https://donleonapi.herokuapp.com/client', method: 'put', data: cliente})
-    .done(function(data) {
+    .always(function() {
       alertify.alert("Don Leon","Se edito el cliente!!", function(){
         window.location.replace('index.html')
       });
