@@ -39,28 +39,28 @@
     <section class="container">
       <form>
         <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" value="fernando@gmail.com" readonly="true">
+          <label for="email">Email: <span class="req">*</span></label>
+          <input type="email" class="form-control-plaintext" id="email" placeholder="fernando@gmail.com" data-type="correo" readonly>
         </div>
         <div class="form-group">
-          <label for="nombre">Nombre:</label>
-          <input type="text" class="form-control" id="nombre" value="Fernando" readonly="true">
+          <label for="nombre">Nombre(s): <span class="req">*</span></label>
+          <input type="text" class="form-control-plaintext" id="name" placeholder="Fernando" data-type="nombre" readonly>
         </div>
         <div class="form-group">
-          <label for="ap-paterno">Apellido Paterno:</label>
-          <input type="text" class="form-control" id="ap-paterno" value="Mayorga" readonly="true">
+          <label for="ap-paterno">Apellido(s): <span class="req">*</span></label>
+          <input type="text" class="form-control-plaintext" id="last_name" placeholder="Mayorga" data-type="nombre" readonly>
         </div>
         <div class="form-group">
-          <label for="ap-materno">Apellido Materno:</label>
-          <input type="text" class="form-control" id="ap-materno" value="Rojas" readonly="true">
+          <label for="tel-cel">Tel. Celular: <span class="req">*</span></label>
+          <input type="text" class="form-control-plaintext" id="phone" placeholder="3398787646" data-type="numero" readonly>
         </div>
         <div class="form-group">
-          <label for="tel-cel">Tel. Celular:</label>
-          <input type="text" class="form-control" id="tel-cel" value="3398787646" readonly="true">
+          <label for="tel-fijo">Puntuación: <span class="req">*</span></label>
+          <input type="number" class="form-control-plaintext" id="score" placeholder="0" data-type="numero" readonly>
         </div>
         <div class="form-group">
-          <label for="tel-fijo">Tel. Fijo:</label>
-          <input type="text" class="form-control" id="tel-fijo" value="36297665" readonly="true">
+          <label for="tel-cel">Comentario: <span class="req">*</span></label>
+          <input type="text" class="form-control-plaintext" id="comment" placeholder="Comentario del cliente" data-type="nombre" readonly>
         </div>
       </form>
     </section>
@@ -97,11 +97,15 @@
       </table>
     </section>
 
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../../../js/vendor/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="../../../js/alertify.min.js" type="text/javascript"></script>
+    <script src="../../../js/md5.min.js" type="text/javascript"></script>
+    <script src="../../../js/validation.js" type="text/javascript"></script>
+    <script src="../../../js/views/admin/clientes/vista.js" type="text/javascript"></script>
   </body>
 </html>
