@@ -1,86 +1,66 @@
-// Obtener los botones de tipo Submit
-let submitButtons = $('button[type=submit]');
+var regex = {
+  "usuario": /^[a-z0-9_-]{3,16}$/,
+  "contrasena": /^[a-zA-Z0-9_-]{6,18}$/,
+  "correo": /\S+@\S+\.\S+/,
+  "nombre": /^[a-zA-Z0-9., ]{3,40}$/,
+  "nombreCompleto": /^[a-zA-Z0-9., ]{3,80}$/,
+  "nombres": /^[a-zA-Z0-9,. ]{3,200}$/,
+  "curriculum": /^[a-zA-Z0-9,. !-/]{3,200}$/,
+  "foto": /\.(jpg|png)\b/,
+  "numero": /^[0-9]{1,20}$/,
+  "direccion": /^[a-zA-Z0-9,. #-]{1,40}$/,
+  "fecha": /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/
+};
 
-// Regex
-const regex = {
-  'username': /^[a-zA-Z0-9]{4,16}$/,
-  'password': /^[a-zA-Z0-9]{4,16}$/,
-  'email': /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/,
-  'phoneNumber': /[0-9-()+]{3,20}/,
-  'date': /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)dd$/,
-  'image': /([^s]+(?=.(jpg|gif|png)).2)/gm
+var regexErrors = {
+  "usuario": "El nombre usuario puede tener solo letras y numeros (3, 16).",
+  "contrasena": "La contraseña puede tener solo letras y numeros (6, 18).",
+  "correo": "El formato del correo es invalido.",
+  "nombre": "El campo debe tener entre 3 y 40 letras.",
+  "nombreCompleto": "El campo debe tener entre 3 y 80 letras.",
+  "nombres": "El campo debe tener entre 3 y 200 letras.",
+  "curriculum": "El campo debe tener entre 3 y 400 letras.",
+  "foto": "No es el formato correcto.",
+  "numero": "Formato de numero incorrecto.",
+  "direccion": "La direccion tiene un formato no valido",
+  "fecha": "Fecha incorrecta."
+};
+
+function error(element, errorMsg) {
+  var html = `<p class="error text-danger">${errorMsg}</p>`;
+  $(html).insertAfter(element);
 }
 
-// Validacion
-let validateForm = function validateForm(e) {
+function validar(element) {
+  // Preparacion
+  var dataType = element.data('type');
+  var reg = new RegExp(regex[dataType]);
+  var val = element.val();
 
-  e.preventDefault();
-
-  let status = 0;
-  let button = $(this);
-  // Ontener formulario
-  let form = button.closest('form');
-  // Obtener inputs a validar
-  let input = form.find('input');
-  let textarea = form.find('textarea');
-
-  // Validar validateRequired
-  cleanError(input);
-  cleanError(textarea);
-  status += validateInputs(input);
-  status += validateTextarea(textarea);
-
-  //console.log(required);
-  if(status == 0)
-    form.submit();
-}
-
-let validateInputs = function validateInputs(fields) {
-  let status = 0;
-
-  $.each(fields, function() {
-    let element = $(this);
-
-    if (element.is('*[required]') && element.val() === '') {
-      generateError(element, 'Este elemento es requerido.');
-      status++;
-    } else if(element.is('*[data-type]') && !element.val().match(regex[element.data('type')])) {
-      generateError(element, 'Revise que el campo este bien escrito.' + regex[element.data('type')]);
-      status++;
+  // Si es un input
+  if(element.is('input')) {
+    //console.log(dataType +"|"+val+": "+reg.test(val));
+    if(!reg.test(val)) {
+      error(element, regexErrors[dataType]);
+      return 1;
     }
-  });
-  return status;
-}
-
-let validateTextarea = function validateTextarea(fields) {
-  let status = 0;
-
-  $.each(fields, function() {
-    let element = $(this);
-
-    if (element.is('*[required]') && element.val() === '') {
-      generateError(element, 'Este elemento es requerido.');
-      status++;
+  }
+  // Si es un select
+  else if (element.is('select')){
+    //alert('select');
+    if(val === '0') {
+      error(element, 'Seleccione una opcion.');
+      return 1;
     }
-  });
-  return status;
+  }
+  // Si es un text area
+  else if (element.is('textarea')){
+    //alert('textarea');
+    if(!reg.test(val)) {
+      console.log(val);
+      error(element, regexErrors[dataType]);
+      return 1;
+    }
+  }
+  return 0;
 }
-
-
-
-
-
-
-// Display settings
-let cleanError = function cleanError(element) {
-  element.removeClass('is-invalid');
-  element.parent().find('span').remove();
-}
-
-let generateError = function generateError(element, error) {
-  element.addClass('is-invalid');
-  $('<span class="invalid-feedback">'+error+'</span>').insertAfter(element);
-}
-
-// Agregar el lsitener para el submit
-submitButtons.on('click', validateForm);

@@ -7,6 +7,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../../css/alertify.css">
+    <link rel="stylesheet" href="../../../css/themes/default.css">
     <title>ADMIN/CREAR</title>
   </head>
   <body>
@@ -39,26 +41,43 @@
     <section class="container">
       <form novalidate>
         <div class="form-group">
-          <label for="email">Email: <span class="req">*</span></label>
-          <input type="email" class="form-control" id="email" placeholder="fernando@gmail.com" data-type="email" required>
-        </div>
-        <div class="form-group">
-          <label for="nombre">Nombre: <span class="req">*</span></label>
-          <input type="text" class="form-control" id="nombre-usuario" placeholder="Fernando" required>
+          <label for="nombre">Nombre de usuario: <span class="req">*</span></label>
+          <input type="text" class="form-control" id="username" placeholder="Usuario" data-type="usuario">
         </div>
         <div class="form-group">
           <label for="ap-paterno">Contraseña: <span class="req">*</span></label>
-          <input type="password" class="form-control" id="contrasena" placeholder="******" required>
+          <input type="password" class="form-control" id="password" placeholder="******" data-type="contrasena">
         </div>
-        <button type="submit" class="btn btn-primary">Crear</button>
+        <div class="form-group">
+          <label for="name">Nombre(s): <span class="req">*</span></label>
+          <input type="text" class="form-control" id="name" placeholder="Nombre(s)" data-type="nombre">
+        </div>
+        <div class="form-group">
+          <label for="last_name">Apellido(s): <span class="req">*</span></label>
+          <input type="text" class="form-control" id="last_name" placeholder="Apellido(s)" data-type="nombre">
+        </div>
+        <div class="form-group">
+          <label for="email">Email: <span class="req">*</span></label>
+          <input type="email" class="form-control" id="email" placeholder="Email" data-type="correo">
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefono: <span class="req">*</span></label>
+          <input type="email" class="form-control" id="phone" placeholder="Telefono" data-type="numero">
+        </div>
+        <button type="button" id="submit" class="btn btn-primary">Crear</button>
       </form>
 
     </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../../../js/vendor/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="../../../js/alertify.min.js" type="text/javascript"></script>
+    <script src="../../../js/md5.min.js" type="text/javascript"></script>
+    <script src="../../../js/validation.js" type="text/javascript"></script>
+    <script src="../../../js/views/admin/administrador/crear.js" type="text/javascript"></script>
   </body>
 </html>
