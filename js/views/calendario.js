@@ -7,8 +7,8 @@ $('document').ready(function() {
       right: 'month,agendaWeek,agendaDay,listWeek'
     },
     defaultDate: '2018-03-12',
-    navLinks: true, // can click day/week names to navigate views
-    editable: true,
+    navLinks: false , // can click day/week names to navigate views
+    editable: false,
     eventLimit: true, // allow "more" link when too many events
     events: [
       {
