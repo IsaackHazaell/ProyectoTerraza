@@ -1,99 +1,49 @@
 $('document').ready(function() {
-
-  // $.get( "https://donleonapi.herokuapp.com/event", function( data ) {
-  //   console.log(data);
-  // });
-  //
-  // $.each(data, function(index, value) {
-  //
-  // });
-
   $.get( "https://donleonapi.herokuapp.com/event", function( data ) {
-    console.log(data);
-  });
-
-
-
-  $('#calendar').fullCalendar({
-
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,agendaWeek,agendaDay,listWeek'
-    },
-    defaultDate: '2018-03-12',
-    navLinks: false , // can click day/week names to navigate views
-    editable: false,
-    eventLimit: true, // allow "more" link when too many events
-
-    events:(function(data){
-       //var data=[];
-       for(var r=0;r <=calendario.size(); r++){
-         //data.push({
-          title: 'hola'
-          //start: ${value.datestart.substring(0,10)},
-          //end: ${value.dateend.substring(0,10)}
+      var data2 = [];
+      for(var i in data)
+      {
+        var file = {title: 'Ocupado',
+          start: data[i].datestart,
+          end: data[i].dateend,
+          backgroundColor: '#AA1600',
+          textColor: '#FFFDFF'};
+        data2.push(file);
       }
-     return data;
-    });
 
-     //events: [
+      console.log(data2);
 
-    //   {
-    //     title: 'All Day Event',
-    //     start: '2018-03-01',
-    //   },
-      // {
-      //   title: 'Long Event',
-      //   start: '2018-03-07',
-      //   end: '2018-03-10'
-      // }
-    //   {
-    //     id: 999,
-    //     title: 'Repeating Event',
-    //     start: '2018-03-09T16:00:00'
-    //   },
-    //   {
-    //     id: 999,
-    //     title: 'Repeating Event',
-    //     start: '2018-03-16T16:00:00'
-    //   },
-    //   {
-    //     title: 'Conference',
-    //     start: '2018-03-11',
-    //     end: '2018-03-13'
-    //   },
-    //   {
-    //     title: 'Meeting',
-    //     start: '2018-03-12T10:30:00',
-    //     end: '2018-03-12T12:30:00'
-    //   },
-    //   {
-    //     title: 'Lunch',
-    //     start: '2018-03-12T12:00:00'
-    //   },
-    //   {
-    //     title: 'Meeting',
-    //     start: '2018-03-12T14:30:00'
-    //   },
-    //   {
-    //     title: 'Happy Hour',
-    //     start: '2018-03-12T17:30:00'
-    //   },
-    //   {
-    //     title: 'Dinner',
-    //     start: '2018-03-12T20:00:00'
-    //   },
-    //   {
-    //     title: 'Birthday Party',
-    //     start: '2018-03-13T07:00:00'
-    //   },
-    //   {
-    //     title: 'Click for Google',
-    //     url: 'http://google.com/',
-    //     start: '2018-03-28'
-    //   }
-     ]
+     $('#calendar').fullCalendar({
+       header: {
+         left: 'prev,next today',
+         center: 'title',
+         right: 'month,agendaWeek,agendaDay,listWeek'
+       },
+       defaultDate: new Date(),
+       navLinks: true , // can click day/week names to navigate views
+       editable: false,
+       eventLimit: true, // allow "more" link when too many events
+       events: data2,
+       timeFormat: 'h:mm',
+
+       dayClick: function (date) {
+        var events = $('#calendar').fullCalendar('clientEvents');
+        for (var i = 0; i < events.length; i++) {
+            if (moment(date).isSame(moment(events[i].start))) {
+                 alertify.warning('Ocupado');
+                break;
+            }
+            else if (i == events.length - 1) {
+              alertify.confirm("Reservar fecha?",
+              function(){
+                alertify.success('Ok');
+                window.location.replace('contacto.html')
+              });
+
+            }
+        }
+      }
+
+      });
   });
-
 });
