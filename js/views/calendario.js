@@ -34,10 +34,13 @@ $('document').ready(function() {
                 break;
             }
             else if (i == events.length - 1) {
-              alertify.confirm("Reservar fecha?",
+              alertify.confirm('Fecha disponible', 'Desea reservarla?',
               function(){
                 alertify.success('Ok');
                 window.location.replace('contacto.html')
+              },
+              function(){
+                
               });
 
             }
