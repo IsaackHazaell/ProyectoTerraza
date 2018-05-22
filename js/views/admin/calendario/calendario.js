@@ -3,7 +3,9 @@ $('document').ready(function() {
       var data2 = [];
       for(var i in data)
       {
-        var file = {title: 'Ocupado',
+        var file = {
+          id: data[i].id,
+          title: 'Ocupado',
           start: data[i].datestart,
           end: data[i].dateend,
           backgroundColor: '#AA1600',
@@ -34,14 +36,22 @@ $('document').ready(function() {
         var events = $('#calendar').fullCalendar('clientEvents');
         for (var i = 0; i < events.length; i++) {
             if (events[i].start <= date && events[i].start >= date) {
-                 alertify.warning('Ocupado');
+              alertify.confirm('Fecha ocupada', 'Inspeccionar evento?',
+              function(){
+                alertify.success('Ok');
+                //window.location.replace('vista.html?id='+element.val());
+                window.location.replace('../evento/vista.html?id='+events[i].id)
+              },
+              function(){
+
+              });
                 break;
             }
             else if (i == events.length - 1) {
-              alertify.confirm('Fecha disponible', 'Desea reservarla?',
+              alertify.confirm('Fecha disponible', 'Crear un evento?',
               function(){
                 alertify.success('Ok');
-                window.location.replace('contacto.html')
+                window.location.replace('../evento/crear.html')
               },
               function(){
 
